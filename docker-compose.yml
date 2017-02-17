@@ -19,12 +19,12 @@ services:
                 - INSTALL_XDEBUG=false
                 - INSTALL_SOAP=false
                 - INSTALL_MONGO=false
-                - INSTALL_NODE=false
+                - INSTALL_NODE=true
                 - INSTALL_YARN=false
                 - INSTALL_DRUSH=false
                 - INSTALL_AEROSPIKE_EXTENSION=false
                 - INSTALL_V8JS_EXTENSION=false
-                - COMPOSER_GLOBAL_INSTALL=false
+                - COMPOSER_GLOBAL_INSTALL=true
                 - INSTALL_WORKSPACE_SSH=false
                 - INSTALL_LARAVEL_ENVOY=false
                 - INSTALL_DEPLOYER=false
@@ -60,6 +60,7 @@ services:
                 - INSTALL_EXIF=false
                 - INSTALL_AEROSPIKE_EXTENSION=false
                 - CODEIGNITER=false
+                - INSTALL_EXIF=true
             dockerfile: Dockerfile-70
         volumes_from:
             - applications
@@ -126,12 +127,12 @@ services:
         build:
             context: ./mysql
             args:
-                - MYSQL_DATABASE=homestead
-                - MYSQL_USER=homestead
+                - MYSQL_DATABASE=medgroups
+                - MYSQL_USER=medgroups
                 - MYSQL_PASSWORD=secret
                 - MYSQL_ROOT_PASSWORD=root
         volumes:
-            - mysql:/var/lib/mysql
+            - ./mysql:/var/lib/mysql
         ports:
             - "3306:3306"
 
